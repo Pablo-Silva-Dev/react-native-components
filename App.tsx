@@ -1,10 +1,14 @@
+import { useState } from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Button } from './src/components/Forms/Button';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text></Text>
+      <Button
+        title='My First PSD component'
+      />
       <StatusBar style="auto" />
     </View>
   );
