@@ -1,11 +1,11 @@
 export const theme = {
     colors:{
-        primary: '#FFDD00',
-        primary_light: '#e6cd2e',
-        primary_dark: '#615513',
-        secondary: '#0088ff',
-        secondary_light: '#2e90e6',
-        secondary_dark: '#11324f',
+        primary: '#0088ff',
+        primary_light: '#2e90e6',
+        primary_dark: '#11324f',
+        secondary: '#FFDD00',
+        secondary_light: '#e6cd2e',
+        secondary_dark: '#615513',
         tertiary: '#ff0044',
         tertiary_light: '#e62e5f',
         tertiary_dark: '#450d1b',
@@ -26,9 +26,6 @@ export const theme = {
         primary_800: 'Poppins_800ExtraBold',
         secondary_300: 'Lato_300Light',
         secondary_400: 'Lato_400Regular',
-        secondary_500: 'Lato_500Medium',
-        secondary_600: 'Lato_600SemiBold',
         secondary_700: 'Lato_700Bold',
-        secondary_800: 'Lato_800Bold',
     },
 }
