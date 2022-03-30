@@ -1,6 +1,6 @@
 import { Feather } from '@expo/vector-icons';
 import React, { useState } from 'react';
-import { TextInputProps, TouchableOpacity } from 'react-native';
+import { TextInputProps } from 'react-native';
 import { useTheme } from 'styled-components';
 import {
     ChangePasswordVisibilityButton,

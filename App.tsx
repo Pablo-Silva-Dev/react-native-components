@@ -1,6 +1,7 @@
+import React, { useState } from 'react';
+import { Image } from 'react-native'
 import AppLoading from 'expo-app-loading';
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
 import { StyleSheet, View, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import {
@@ -30,12 +31,20 @@ import { Input } from './src/components/Forms/Input';
 import { Divider } from './src/components/Elements/Divider';
 import { AlternativeButton } from './src/components/Elements/AlternativeButton';
 import { Button } from './src/components/Elements/Button';
+import { ImageCarousel } from './src/components/Elements/ImageCarousel';
 
 
 export default function App() {
 
   const [isLoading, setIsLoading] = useState(false)
   const [isEnablaed, setIsEnabled] = useState(false)
+
+  const images = [
+    "https://source.unsplash.com/1024x768/?nature",
+    "https://source.unsplash.com/1024x768/?water",
+    "https://source.unsplash.com/1024x768/?girl",
+    "https://source.unsplash.com/1024x768/?tree", 
+  ]
 
   const [fontLoaded] = useFonts({
     Poppins_300Light,
@@ -54,7 +63,7 @@ export default function App() {
     )
   }
 
-  async function testButtons(){
+  async function testButtons() {
     setIsLoading(true)
     await setTimeout(() => {
       console.log('ok')
@@ -67,33 +76,8 @@ export default function App() {
       <StatusBar style="auto" />
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
-          <Divider />
-          <Title
-            content='Pablo Silva Dev'
-          />
-          <Divider />
-          <SubTitle
-            content='Pablo Silva Dev'
-          />
-          <Divider />
-          <Text 
-            content='lorem ipsum'
-          />
-          <EmailInput
-          />
-          <PasswordInput
-          />
-          <AlternativeButton
-            title='Confirmar'
-            onPress={testButtons}
-            loading={isLoading}
-            disabled={isEnablaed}
-          />
-          <Button
-            title='Cancelar'
-            onPress={testButtons}
-            loading={isLoading}
-            disabled={isLoading}
+          <ImageCarousel
+            images={images}
           />
         </View>
       </TouchableWithoutFeedback>
