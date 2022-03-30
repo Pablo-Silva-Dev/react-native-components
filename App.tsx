@@ -1,6 +1,6 @@
 import AppLoading from 'expo-app-loading';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import {
@@ -28,9 +28,14 @@ import { theme } from './src/themes/theme';
 import { PasswordInput } from './src/components/Forms/PasswordInput';
 import { Input } from './src/components/Forms/Input';
 import { Divider } from './src/components/Elements/Divider';
+import { AlternativeButton } from './src/components/Elements/AlternativeButton';
+import { Button } from './src/components/Elements/Button';
 
 
 export default function App() {
+
+  const [isLoading, setIsLoading] = useState(false)
+  const [isEnablaed, setIsEnabled] = useState(false)
 
   const [fontLoaded] = useFonts({
     Poppins_300Light,
@@ -47,6 +52,14 @@ export default function App() {
     return (
       <AppLoading />
     )
+  }
+
+  async function testButtons(){
+    setIsLoading(true)
+    await setTimeout(() => {
+      console.log('ok')
+      setIsLoading(false)
+    }, 1000)
   }
 
   return (
@@ -69,6 +82,18 @@ export default function App() {
           <EmailInput
           />
           <PasswordInput
+          />
+          <AlternativeButton
+            title='Confirmar'
+            onPress={testButtons}
+            loading={isLoading}
+            disabled={isEnablaed}
+          />
+          <Button
+            title='Cancelar'
+            onPress={testButtons}
+            loading={isLoading}
+            disabled={isLoading}
           />
         </View>
       </TouchableWithoutFeedback>

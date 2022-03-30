@@ -24,6 +24,7 @@ export const IconContainer = styled.View`
   height: 56px;
   background-color: ${({ theme: theme }) => theme.colors.background};
   margin-right: 2px;
+  border-radius: 4px;
 `;
 
 export const ChangePasswordVisibilityContainer = styled.View`
@@ -41,6 +42,7 @@ export const InputText = styled(TextInput)`
   font-family: ${({ theme }) => theme.fonts.primary_400};
   font-size: ${RFValue(14)}px;
   padding: 0 24px;
+  border-radius: 4px;
 `;
 
 export const ChangePasswordVisibilityButton = styled.TouchableOpacity`

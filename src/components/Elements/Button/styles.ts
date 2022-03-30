@@ -10,6 +10,7 @@ export const Container = styled.TouchableOpacity<ButtonProps>`
   width: 92%;
   height: 54px;
   margin: 2px;
+  border-radius: 4px;
   background-color: ${({theme}) => theme.colors.primary};
   text-transform: uppercase;
   ${({ disabled }) =>

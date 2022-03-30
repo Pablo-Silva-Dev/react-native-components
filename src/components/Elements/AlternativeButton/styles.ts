@@ -10,7 +10,10 @@ export const Container = styled.TouchableOpacity<ButtonProps>`
   width: 92%;
   height: 54px;
   margin: 2px;
-  background-color: ${({theme}) => theme.colors.primary};
+  background-color: transparent;
+  border-width: 1px;
+  border-color: ${({ theme }) => theme.colors.primary};
+  border-radius: 4px;
   text-transform: uppercase;
   ${({ disabled }) =>
     disabled
@@ -24,5 +27,5 @@ export const Container = styled.TouchableOpacity<ButtonProps>`
 
 export const Title = styled.Text`
   text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.primary};
 `;
