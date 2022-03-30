@@ -1,12 +1,17 @@
 import React from 'react';
+import { TextProps } from 'react-native'
 import { SubTitle as SubTitleComponent } from './styles';
 
-interface SubTitleProps {
+interface SubTitleProps extends TextProps {
     content: string;
 }
 
-export function SubTitle({ content }: SubTitleProps) {
+export function SubTitle({ content, ...rest }: SubTitleProps) {
     return (
-        <SubTitleComponent>{content}</SubTitleComponent>
+        <SubTitleComponent
+            {...rest}
+        >
+            {content}
+        </SubTitleComponent>
     )
 }

@@ -4,6 +4,7 @@ import { TextInputProps, TouchableOpacity } from 'react-native';
 import { useTheme } from 'styled-components';
 import {
     ChangePasswordVisibilityButton,
+    ChangePasswordVisibilityContainer,
     Container,
     IconContainer,
     InputText
@@ -52,7 +53,7 @@ export function PasswordInput({ value, ...rest }: Props) {
                 onBlur={handleInputBlur}
                 placeholder='Senha'
             />
-            <IconContainer>
+            <ChangePasswordVisibilityContainer>
                 <ChangePasswordVisibilityButton
                     onPress={handlePasswordVisibilityChange}
                     activeOpacity={.8}
@@ -63,7 +64,7 @@ export function PasswordInput({ value, ...rest }: Props) {
                         color={theme.colors.text}
                     />
                 </ChangePasswordVisibilityButton>
-            </IconContainer>
+            </ChangePasswordVisibilityContainer>
 
         </Container>
     )

@@ -1,12 +1,17 @@
 import React from 'react';
+import { TextProps } from 'react-native'
 import { Title as TitleComponent } from './styles';
 
-interface TitleProps {
+interface TitleProps extends TextProps {
     content: string;
 }
 
-export function Title({ content }: TitleProps) {
+export function Title({ content, ...rest }: TitleProps) {
     return (
-        <TitleComponent>{content}</TitleComponent>
+        <TitleComponent
+            {...rest}
+        >
+            {content}
+        </TitleComponent>
     )
 }
