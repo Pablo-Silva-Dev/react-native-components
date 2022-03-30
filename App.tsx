@@ -1,7 +1,7 @@
 import AppLoading from 'expo-app-loading';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import {
   Lato_300Light,
@@ -9,9 +9,9 @@ import {
   Lato_700Bold
 } from '@expo-google-fonts/lato';
 import {
-  Poppins_300Light, 
-  Poppins_400Regular, 
-  Poppins_500Medium, 
+  Poppins_300Light,
+  Poppins_400Regular,
+  Poppins_500Medium,
   Poppins_600SemiBold,
   Poppins_700Bold, useFonts
 } from '@expo-google-fonts/poppins';
@@ -20,9 +20,11 @@ import {
 //import { Loading } from './src/components/Loading'
 //import { Input } from './src/components/Forms/Input';
 //import { PasswordInput } from './src/components/Forms/PasswordInput';
+import { EmailInput } from './src/components/Forms/EmailInput'
 import { Title } from './src/components/Typography/Title';
 import { SubTitle } from './src/components/Typography/SubTitle';
 import { theme } from './src/themes/theme';
+import { PasswordInput } from './src/components/Forms/PasswordInput';
 
 
 export default function App() {
@@ -47,23 +49,30 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar style="auto" />
-      <View style={styles.container}>
-        <Title
-          content='Pablo Silva Dev'
-        />
-        <SubTitle
-          content='Pablo Silva Dev'
-        />
-   
-      </View>
+      <TouchableWithoutFeedback  onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <Title
+            content='Pablo Silva Dev'
+          />
+          <SubTitle
+            content='Pablo Silva Dev'
+          />
+          <EmailInput
+          />
+          <PasswordInput
+          />
+        </View>
+      </TouchableWithoutFeedback>
     </ThemeProvider>
   );
 }
 
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ffff",
+    backgroundColor: theme.colors.background_light,
     alignItems: 'center',
     justifyContent: 'center',
   },
