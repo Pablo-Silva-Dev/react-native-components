@@ -16,7 +16,7 @@ import {
   Poppins_700Bold, useFonts
 } from '@expo-google-fonts/poppins';
 
-//import { Button } from './src/components/Forms/Button';
+import { FormButton } from './src/components/Forms/FormButton';
 //import { Loading } from './src/components/Loading'
 //import { Input } from './src/components/Forms/Input';
 //import { PasswordInput } from './src/components/Forms/PasswordInput';
@@ -27,6 +27,7 @@ import { Text } from './src/components/Typography/Text';
 import { theme } from './src/themes/theme';
 import { PasswordInput } from './src/components/Forms/PasswordInput';
 import { Input } from './src/components/Forms/Input';
+import { Divider } from './src/components/Elements/Divider';
 
 
 export default function App() {
@@ -53,12 +54,15 @@ export default function App() {
       <StatusBar style="auto" />
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
+          <Divider />
           <Title
             content='Pablo Silva Dev'
           />
+          <Divider />
           <SubTitle
             content='Pablo Silva Dev'
           />
+          <Divider />
           <Text 
             content='lorem ipsum'
           />

@@ -6,12 +6,14 @@ interface ButtonProps extends TouchableOpacityProps {
     disabled?: boolean;
     loading?: boolean;
     title: string;
+    submit: () => Promise<void>;
 }
 
-export function Button({
+export function FormButton({
     disabled,
     loading,
     title,
+    submit,
     ...rest
 }: ButtonProps) {
     return (
@@ -19,6 +21,7 @@ export function Button({
             {...rest}
             activeOpacity={.88}
             disabled={disabled!}
+            onPress={submit}
         >
             {
                 loading ?
