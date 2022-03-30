@@ -1,9 +1,3 @@
-import React, { useState } from 'react';
-import { Image } from 'react-native'
-import AppLoading from 'expo-app-loading';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, TouchableWithoutFeedback, Keyboard } from 'react-native';
-import { ThemeProvider } from 'styled-components';
 import {
   Lato_300Light,
   Lato_400Regular,
@@ -16,22 +10,17 @@ import {
   Poppins_600SemiBold,
   Poppins_700Bold, useFonts
 } from '@expo-google-fonts/poppins';
-
-import { FormButton } from './src/components/Forms/FormButton';
-//import { Loading } from './src/components/Loading'
-//import { Input } from './src/components/Forms/Input';
-//import { PasswordInput } from './src/components/Forms/PasswordInput';
-import { EmailInput } from './src/components/Forms/EmailInput'
-import { Title } from './src/components/Typography/Title';
-import { SubTitle } from './src/components/Typography/SubTitle';
-import { Text } from './src/components/Typography/Text';
-import { theme } from './src/themes/theme';
-import { PasswordInput } from './src/components/Forms/PasswordInput';
-import { Input } from './src/components/Forms/Input';
-import { Divider } from './src/components/Elements/Divider';
-import { AlternativeButton } from './src/components/Elements/AlternativeButton';
-import { Button } from './src/components/Elements/Button';
+import AppLoading from 'expo-app-loading';
+import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react';
+import { Keyboard, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import { ThemeProvider } from 'styled-components';
+import { CardImage } from './src/components/Elements/CardImage';
+import { CardInfo } from './src/components/Elements/CardInfo';
 import { ImageCarousel } from './src/components/Elements/ImageCarousel';
+import { Title } from './src/components/Typography/Title';
+import { theme } from './src/themes/theme';
+
 
 
 export default function App() {
@@ -43,7 +32,7 @@ export default function App() {
     "https://source.unsplash.com/1024x768/?nature",
     "https://source.unsplash.com/1024x768/?water",
     "https://source.unsplash.com/1024x768/?girl",
-    "https://source.unsplash.com/1024x768/?tree", 
+    "https://source.unsplash.com/1024x768/?tree",
   ]
 
   const [fontLoaded] = useFonts({
