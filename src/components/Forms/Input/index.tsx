@@ -27,7 +27,6 @@ export function Input({  iconName, value, ...rest }: Props) {
 
     return (
         <Container
-            isFocused={isFocused}
         >
             <IconContainer
 
@@ -36,11 +35,12 @@ export function Input({  iconName, value, ...rest }: Props) {
                     name={iconName}
                     size={24}
                     color={isFocused || isFilled ? theme.colors.primary : theme.colors.text}
-                />
+                    />
             </IconContainer>
             <InputText
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
+                isFocused={isFocused}
                 {...rest}
             />
         </Container>

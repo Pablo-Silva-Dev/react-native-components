@@ -31,7 +31,7 @@ export function FormButton({
                 loading ?
                     <ActivityIndicator
                         size='small'
-                        color={theme.colors.background}
+                        color={theme.colors.background_primary}
                     />
                     :
                     <Title>{title}</Title>

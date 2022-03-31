@@ -16,7 +16,7 @@ export function Loading({ isLoading }: Props) {
             {isLoading ?
                 <ActivityIndicator
                     size="large"
-                    color={theme.colors.secondary}
+                    color={theme.colors.element_base}
                 />
                 :
                 null

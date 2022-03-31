@@ -7,9 +7,10 @@ interface ButtonProps {
 export const Container = styled.TouchableOpacity<ButtonProps>`
   justify-content: center;
   align-items: center;
-  width: 92%;
+  width: 96%;
   height: 54px;
   margin: 2px;
+  border-radius: 4px;
   background-color: ${({theme}) => theme.colors.primary};
   text-transform: uppercase;
   ${({ disabled }) =>
@@ -24,5 +25,5 @@ export const Container = styled.TouchableOpacity<ButtonProps>`
 
 export const Title = styled.Text`
   text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.element_base};
 `;

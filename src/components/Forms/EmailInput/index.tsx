@@ -8,7 +8,7 @@ interface Props extends TextInputProps {
     value?: string;
 }
 
-export function EmailInput({  value, ...rest }: Props) {
+export function EmailInput({ value, ...rest }: Props) {
 
     const theme = useTheme()
 
@@ -18,7 +18,7 @@ export function EmailInput({  value, ...rest }: Props) {
     function handleInputFocus() {
         setIsFocused(true)
     }
-    
+
     function handleInputBlur() {
         setIsFocused(false)
         setIsFilled(!!value)
@@ -29,7 +29,6 @@ export function EmailInput({  value, ...rest }: Props) {
             isFocused={isFocused}
         >
             <IconContainer
-
             >
                 <Feather
                     name='mail'
@@ -38,6 +37,7 @@ export function EmailInput({  value, ...rest }: Props) {
                 />
             </IconContainer>
             <InputText
+                isFocused={isFocused}
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
                 placeholder='Email'
