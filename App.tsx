@@ -1,23 +1,23 @@
 import {
-    Lato_300Light,
-    Lato_400Regular,
-    Lato_700Bold
+  Lato_300Light,
+  Lato_400Regular,
+  Lato_700Bold
 } from '@expo-google-fonts/lato';
 import {
-    Poppins_300Light,
-    Poppins_400Regular,
-    Poppins_500Medium,
-    Poppins_600SemiBold,
-    Poppins_700Bold, useFonts
+  Poppins_300Light,
+  Poppins_400Regular,
+  Poppins_500Medium,
+  Poppins_600SemiBold,
+  Poppins_700Bold, useFonts
 } from '@expo-google-fonts/poppins';
 import AppLoading from 'expo-app-loading';
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
-    Keyboard,
-    StyleSheet,
-    TouchableWithoutFeedback,
-    View
+  Keyboard,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View
 } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './src/themes/theme';
@@ -40,16 +40,33 @@ import { Text } from './src/components/Typography/Text';
 
 export default function App() {
 
+  const persons = [
+    'Fulan',
+    'Cyclan',
+    'FulanCyclan',
+    'Pablo',
+    'Caqui'
+
+  ]
+
   const [isLoading, setIsLoading] = useState(false)
   const [isEnabled, setIsEnabled] = useState(false)
+  const [people, setPeople] = useState('')
+  const [peoples, setPeoples] = useState(persons)
+  const [foundedPeoples, setFoundedPeoples] = useState([''])
 
-/*   const images = [
-    "https://source.unsplash.com/1024x768/?nature",
-    "https://source.unsplash.com/1024x768/?water",
-    "https://source.unsplash.com/1024x768/?girl",
-    "https://source.unsplash.com/1024x768/?tree",
-  ]
- */
+  useEffect(() => {
+    searchingTerm(people)
+  }, [people])
+
+  /*   const images = [
+      "https://source.unsplash.com/1024x768/?nature",
+      "https://source.unsplash.com/1024x768/?water",
+      "https://source.unsplash.com/1024x768/?girl",
+      "https://source.unsplash.com/1024x768/?tree",
+    ]
+   */
+
   const [fontLoaded] = useFonts({
     Poppins_300Light,
     Poppins_500Medium,
@@ -79,6 +96,26 @@ export default function App() {
     setIsEnabled(previousState => !previousState)
   }
 
+  function searchingTerm(term: string) {
+    if (people) {
+      const foundPeoples = peoples
+        .filter((people) => {
+          if (people.toLowerCase().includes(term.toLowerCase())) {
+            return people
+          }
+        })
+      setFoundedPeoples(foundPeoples)
+    } else {
+      setFoundedPeoples([])
+    }
+  }
+
+  function searchTerm(term: string) {
+    const foundPeople = peoples
+    .filter(people => people.toLowerCase() === term.toLowerCase())
+    setFoundedPeoples(foundPeople)
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <StatusBar style="auto" />
@@ -88,32 +125,26 @@ export default function App() {
             onValueChange={toggleSwitch}
             value={isEnabled}
           />
-          <SearchBar />
-     
-          <CardImage 
-            title='Title'
-            image='https://source.unsplash.com/1024x768/?nature'
+          <SearchBar
+            value={people}
+            onChangeText={setPeople}
+            search={() => searchTerm(people)}
           />
-          <Input 
-            iconName='credit-card'
-          />
-          <PasswordInput />
-          <EmailInput />
-          <AlternativeButton
-            title='Cancel'
-          />
-          <FormButton 
-            title='Confirm'
-            submit={testButtons}
-          />
-          <Title
-            content='Pablo Silva Dev'
-          />
-          <SubTitle
-            content='Pablo Silva Dev'
-          />
+          {peoples.map(people => (
+            <Text
+              content={people}
+            />
+          ))}
+          <Divider />
+          {foundedPeoples.map(people => (
+            <Text
+              content={people}
+            />
+          ))}
+          <Divider />
+
           <Text
-            content='Pablo Silva Dev'
+            content={`${people} from text input`}
           />
         </View>
       </TouchableWithoutFeedback>

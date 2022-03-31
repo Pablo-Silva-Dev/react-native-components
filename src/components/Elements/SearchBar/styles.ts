@@ -18,7 +18,7 @@ export const SearchInput = styled.TextInput`
   border-radius: 4px;
 `;
 
-export const SearchButton = styled(RectButton)`
+export const SearchButton = styled.TouchableOpacity`
   display: flex;
   justify-content: center;
   align-items: center;
