@@ -36,28 +36,16 @@ import { PasswordInput } from './src/components/Forms/PasswordInput';
 import { Title } from './src/components/Typography/Title';
 import { SubTitle } from './src/components/Typography/SubTitle';
 import { Text } from './src/components/Typography/Text';
+import { Avatar } from './src/components/Elements/Avatar';
 
 
 export default function App() {
 
-  const persons = [
-    'Fulan',
-    'Cyclan',
-    'FulanCyclan',
-    'Pablo',
-    'Caqui'
-
-  ]
-
   const [isLoading, setIsLoading] = useState(false)
   const [isEnabled, setIsEnabled] = useState(false)
   const [people, setPeople] = useState('')
-  const [peoples, setPeoples] = useState(persons)
   const [foundedPeoples, setFoundedPeoples] = useState([''])
 
-  useEffect(() => {
-    searchingTerm(people)
-  }, [people])
 
   /*   const images = [
       "https://source.unsplash.com/1024x768/?nature",
@@ -66,6 +54,8 @@ export default function App() {
       "https://source.unsplash.com/1024x768/?tree",
     ]
    */
+
+    const profileImg = 'https://avatars.githubusercontent.com/u/54117323?s=400&u=e5bf2f12d9b4b8e8c29214efbfa17e4d7f3fd22c&v=4'
 
   const [fontLoaded] = useFonts({
     Poppins_300Light,
@@ -92,60 +82,17 @@ export default function App() {
     }, 1000)
   }
 
-  const toggleSwitch = () => {
-    setIsEnabled(previousState => !previousState)
-  }
 
-  function searchingTerm(term: string) {
-    if (people) {
-      const foundPeoples = peoples
-        .filter((people) => {
-          if (people.toLowerCase().includes(term.toLowerCase())) {
-            return people
-          }
-        })
-      setFoundedPeoples(foundPeoples)
-    } else {
-      setFoundedPeoples([])
-    }
-  }
-
-  function searchTerm(term: string) {
-    const foundPeople = peoples
-    .filter(people => people.toLowerCase() === term.toLowerCase())
-    setFoundedPeoples(foundPeople)
-  }
 
   return (
     <ThemeProvider theme={theme}>
       <StatusBar style="auto" />
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
-          <Switch
-            onValueChange={toggleSwitch}
-            value={isEnabled}
-          />
-          <SearchBar
-            value={people}
-            onChangeText={setPeople}
-            search={() => searchTerm(people)}
-          />
-          {peoples.map(people => (
-            <Text
-              content={people}
-            />
-          ))}
-          <Divider />
-          {foundedPeoples.map(people => (
-            <Text
-              content={people}
-            />
-          ))}
-          <Divider />
-
-          <Text
-            content={`${people} from text input`}
-          />
+        <Avatar 
+          avatarUrl={profileImg}
+        />
+    
         </View>
       </TouchableWithoutFeedback>
     </ThemeProvider>

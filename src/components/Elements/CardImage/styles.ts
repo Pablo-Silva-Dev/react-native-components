@@ -8,6 +8,11 @@ export const Container = styled.View`
   border-width: 2px;
   border-color: ${({ theme }) => theme.colors.element_base}
   width: ${Dimensions.get("window").width - 16}px;
+  elevation: 8;
+  shadow-color: ${({ theme }) => theme.colors.title};
+  shadow-offset: {width: -2, height: 4};
+  shadow-opacity: 0.2;
+  shadow-radius: 2;
 `;
 
 export const TitleContainer = styled.View`
