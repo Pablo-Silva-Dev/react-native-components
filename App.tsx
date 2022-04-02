@@ -37,25 +37,29 @@ import { Title } from './src/components/Typography/Title';
 import { SubTitle } from './src/components/Typography/SubTitle';
 import { Text } from './src/components/Typography/Text';
 import { Avatar } from './src/components/Elements/Avatar';
+import {
+  Calendar,
+  DayProps,
+  MarkedDateProps
+} from './src/components/Elements/Calendar';
+import { format } from 'date-fns';
+import { getPlatformDate } from './src/components/Elements/Calendar/getPlatformDate';
+import { generateInterval } from './src/components/Elements/Calendar/generateInterval';
+
+interface RentalPeriod {
+  startFormatted: string;
+  endFormatted: string;
+}
 
 
 export default function App() {
 
   const [isLoading, setIsLoading] = useState(false)
   const [isEnabled, setIsEnabled] = useState(false)
-  const [people, setPeople] = useState('')
-  const [foundedPeoples, setFoundedPeoples] = useState([''])
 
-
-  /*   const images = [
-      "https://source.unsplash.com/1024x768/?nature",
-      "https://source.unsplash.com/1024x768/?water",
-      "https://source.unsplash.com/1024x768/?girl",
-      "https://source.unsplash.com/1024x768/?tree",
-    ]
-   */
-
-    const profileImg = 'https://avatars.githubusercontent.com/u/54117323?s=400&u=e5bf2f12d9b4b8e8c29214efbfa17e4d7f3fd22c&v=4'
+  const [lastSelectedDate, setLastSelectedDate] = useState<DayProps>({} as DayProps)
+  const [markedDates, setMarkedDates] = useState<MarkedDateProps>({} as MarkedDateProps)
+  const [rentalPeriod, setRentalPeriod] = useState<RentalPeriod>({} as RentalPeriod)
 
   const [fontLoaded] = useFonts({
     Poppins_300Light,
@@ -74,12 +78,44 @@ export default function App() {
     )
   }
 
-  async function testButtons() {
-    setIsLoading(true)
-    await setTimeout(() => {
-      console.log('ok')
-      setIsLoading(false)
-    }, 1000)
+  /*   async function testButtons() {
+      setIsLoading(true)
+      await setTimeout(() => {
+        console.log('ok')
+        setIsLoading(false)
+      }, 1000)
+  
+    } */
+
+  function handleChangeDate(date: DayProps) {
+    let start = !lastSelectedDate.timestamp ? date : lastSelectedDate;
+    let end = date;
+
+    if (start.timestamp > end.timestamp) {
+      start = end;
+      end = start;
+    }
+
+    setLastSelectedDate(end);
+    const interval = generateInterval(start, end);
+    setMarkedDates(interval);
+
+    const firstDate = Object.keys(interval)[0];
+    const endDate = Object.keys(interval)[Object.keys(interval).length - 1];
+
+    setRentalPeriod({
+      startFormatted: format(getPlatformDate(new Date(firstDate)), 'dd/MM/yyyy'),
+      endFormatted: format(getPlatformDate(new Date(endDate)), 'dd/MM/yyyy'),
+    })
+  }
+
+  function formatFinalDataMessage() {
+    if (!rentalPeriod.endFormatted || !rentalPeriod.startFormatted) {
+      return ''
+    }
+    return [
+      `De ${rentalPeriod.startFormatted}`,
+      `Até ${rentalPeriod.endFormatted}`]
   }
 
 
@@ -89,10 +125,13 @@ export default function App() {
       <StatusBar style="auto" />
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
-        <Avatar 
-          avatarUrl={profileImg}
-        />
-    
+
+          <Calendar
+            onDayPress={handleChangeDate}
+            markedDates={markedDates}
+            initialDate={formatFinalDataMessage()[0]}
+            finalDate={formatFinalDataMessage()[1]}
+          />
         </View>
       </TouchableWithoutFeedback>
     </ThemeProvider>
@@ -104,7 +143,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.background_primary,
+    backgroundColor: theme.colors.background_secondary,
     alignItems: 'center',
     justifyContent: 'center',
   },
