@@ -17,7 +17,8 @@ import {
   Keyboard,
   StyleSheet,
   TouchableWithoutFeedback,
-  View
+  View,
+  SafeAreaView
 } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './src/themes/theme';
@@ -46,10 +47,7 @@ import { format } from 'date-fns';
 import { getPlatformDate } from './src/components/Elements/Calendar/getPlatformDate';
 import { generateInterval } from './src/components/Elements/Calendar/generateInterval';
 
-interface RentalPeriod {
-  startFormatted: string;
-  endFormatted: string;
-}
+import {UserHeader} from './src/components/Elements/UserHeader'
 
 
 export default function App() {
@@ -57,9 +55,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false)
   const [isEnabled, setIsEnabled] = useState(false)
 
-  const [lastSelectedDate, setLastSelectedDate] = useState<DayProps>({} as DayProps)
-  const [markedDates, setMarkedDates] = useState<MarkedDateProps>({} as MarkedDateProps)
-  const [rentalPeriod, setRentalPeriod] = useState<RentalPeriod>({} as RentalPeriod)
+
 
   const [fontLoaded] = useFonts({
     Poppins_300Light,
@@ -78,45 +74,7 @@ export default function App() {
     )
   }
 
-  /*   async function testButtons() {
-      setIsLoading(true)
-      await setTimeout(() => {
-        console.log('ok')
-        setIsLoading(false)
-      }, 1000)
-  
-    } */
 
-  function handleChangeDate(date: DayProps) {
-    let start = !lastSelectedDate.timestamp ? date : lastSelectedDate;
-    let end = date;
-
-    if (start.timestamp > end.timestamp) {
-      start = end;
-      end = start;
-    }
-
-    setLastSelectedDate(end);
-    const interval = generateInterval(start, end);
-    setMarkedDates(interval);
-
-    const firstDate = Object.keys(interval)[0];
-    const endDate = Object.keys(interval)[Object.keys(interval).length - 1];
-
-    setRentalPeriod({
-      startFormatted: format(getPlatformDate(new Date(firstDate)), 'dd/MM/yyyy'),
-      endFormatted: format(getPlatformDate(new Date(endDate)), 'dd/MM/yyyy'),
-    })
-  }
-
-  function formatFinalDataMessage() {
-    if (!rentalPeriod.endFormatted || !rentalPeriod.startFormatted) {
-      return ''
-    }
-    return [
-      `De ${rentalPeriod.startFormatted}`,
-      `Até ${rentalPeriod.endFormatted}`]
-  }
 
 
 
@@ -124,15 +82,15 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <StatusBar style="auto" />
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.container}>
-
-          <Calendar
-            onDayPress={handleChangeDate}
-            markedDates={markedDates}
-            initialDate={formatFinalDataMessage()[0]}
-            finalDate={formatFinalDataMessage()[1]}
-          />
-        </View>
+        <SafeAreaView style={styles.container}>
+        <UserHeader
+          title='Minha conta'
+          userName='Pablo'
+          userEmail='suportepablosilvadev@gmail.com'
+          userPhotoUrl='https://avatars.githubusercontent.com/u/54117323?v=4'
+          showSettings
+        />
+        </SafeAreaView>
       </TouchableWithoutFeedback>
     </ThemeProvider>
   );
@@ -145,6 +103,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: theme.colors.background_secondary,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
 });

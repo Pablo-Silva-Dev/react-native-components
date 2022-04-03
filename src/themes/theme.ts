@@ -16,7 +16,11 @@ export const theme = {
         element_base: '#e6e6e6',
         success: '#4fd934',
         alert: '#d97934',
-        error: '#d9344f'
+        error: '#d9344f',
+        white: '#ffffff',
+        gray: '#ffffff',
+        silver: '#C0C0C0',
+        black: '#111111',
     },
     fonts:{
         primary_300: 'Poppins_300Light',
