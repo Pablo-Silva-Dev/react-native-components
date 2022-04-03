@@ -48,6 +48,8 @@ import { getPlatformDate } from './src/components/Elements/Calendar/getPlatformD
 import { generateInterval } from './src/components/Elements/Calendar/generateInterval';
 
 import {UserHeader} from './src/components/Elements/UserHeader'
+import { Header } from './src/components/Elements/Header';
+import { BackButton } from './src/components/Elements/BackButton';
 
 
 export default function App() {
@@ -74,22 +76,19 @@ export default function App() {
     )
   }
 
-
-
-
-
   return (
     <ThemeProvider theme={theme}>
       <StatusBar style="auto" />
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <SafeAreaView style={styles.container}>
-        <UserHeader
-          title='Minha conta'
-          userName='Pablo'
-          userEmail='suportepablosilvadev@gmail.com'
-          userPhotoUrl='https://avatars.githubusercontent.com/u/54117323?v=4'
-          showSettings
-        />
+          <Header 
+            title='Novo usuário'
+            content='Cadastre-se rapidamente e obtenha acesso restrito.'
+            showsBackButton
+          />
+          <BackButton
+            onPress={() => {}}
+          />
         </SafeAreaView>
       </TouchableWithoutFeedback>
     </ThemeProvider>

@@ -16,8 +16,8 @@ import {
 
 interface UserHeaderProps {
   title: string;
-  userName: string;
-  userEmail: string;
+  userName?: string;
+  userEmail?: string;
   userPhotoUrl?: string;
   showSettings?: boolean;
   onOpenSettings?: () => void;
