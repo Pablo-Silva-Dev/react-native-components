@@ -4,13 +4,13 @@ import styled from "styled-components/native";
 export const Container = styled.View`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-between
   align-items: flex-start;
-  width: ${Dimensions.get('window').width /2.12}
+  width: ${Dimensions.get('window').width - 16};
   height: 144px;
   border-radius: 4px;
-  padding: 8px;
-  margin: 2px;
+  padding: 12px;
+  margin: 4px 8px;
   background-color: ${({ theme }) => theme.colors.white};
   elevation: 8;
 `;
@@ -20,6 +20,7 @@ export const ImageContainer = styled.View``;
 export const Image = styled.Image`
   width: 64px;
   height: 64px;
+  margin: 4px;
 `;
 
 export const ProductInfoContainer = styled.View`
@@ -30,14 +31,14 @@ export const ProductInfoContainer = styled.View`
 `;
 
 export const ProductTitle = styled.Text`
-  font-size: 12px;
-  font-family: ${({ theme }) => theme.fonts.primary_500};
-  color: ${({ theme }) => theme.colors.text};
-  width: 56%;
+  font-size: 14px;
+  font-family: ${({ theme }) => theme.fonts.primary_600};
+  color: ${({ theme }) => theme.colors.title};
+  width: 72%;
 `;
 
 export const ProductPriceOnMoney = styled.Text`
-  font-size: 12px;
+  font-size: 14px;
   font-family: ${({ theme }) => theme.fonts.primary_700};
   color: ${({ theme }) => theme.colors.success};
 `;
@@ -59,6 +60,8 @@ export const Divider = styled.View`
 export const ButtonsContainer = styled.View`
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 80px;
 `;
 
 export const CartButton = styled.TouchableOpacity`

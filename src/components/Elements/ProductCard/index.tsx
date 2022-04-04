@@ -17,7 +17,7 @@ import {
 } from './styles';
 import { useTheme } from 'styled-components';
 
-interface MiniProductCardProps {
+interface ProductCardProps {
     productTitle?: string;
     productImage?: string;
     productPriceOnMoney?: string;
@@ -27,7 +27,7 @@ interface MiniProductCardProps {
     shareProduct?: () => Promise<void>;
 }
 
-export function MiniProductCard({
+export function ProductCard({
     productTitle,
     productImage,
     productPriceOnMoney,
@@ -35,7 +35,7 @@ export function MiniProductCard({
     addToCart,
     addToFavorites,
     shareProduct
-}: MiniProductCardProps) {
+}: ProductCardProps) {
 
 
     const theme = useTheme()
@@ -48,16 +48,6 @@ export function MiniProductCard({
                 />
             </ImageContainer>
             <ProductInfoContainer>
-                <ProductTitle>
-                    {productTitle}
-                </ProductTitle>
-                <ProductPriceOnMoney>
-                    {productPriceOnMoney}
-                </ProductPriceOnMoney>
-                <ProductPriceOnCredit>
-                    {productPriceOnCreditCard}
-                </ProductPriceOnCredit>
-                <Divider />
                 <ButtonsContainer>
                     <CartButton
                         activeOpacity={.8}
@@ -71,7 +61,7 @@ export function MiniProductCard({
                     </CartButton>
                     <FavoriteButton
                         activeOpacity={.8}
-                        onPress={addToFavorites}
+                        onPress={shareProduct}
                     >
                         <Feather
                             name='heart'
@@ -81,7 +71,7 @@ export function MiniProductCard({
                     </FavoriteButton>
                     <ShareButton
                         activeOpacity={.8}
-                        onPress={shareProduct}
+                        onPress={addToFavorites}
                     >
                         <Feather
                             name='share-2'
@@ -90,6 +80,15 @@ export function MiniProductCard({
                         />
                     </ShareButton>
                 </ButtonsContainer>
+                <ProductTitle>
+                    {productTitle}
+                </ProductTitle>
+                <ProductPriceOnMoney>
+                    {productPriceOnMoney}
+                </ProductPriceOnMoney>
+                <ProductPriceOnCredit>
+                    {productPriceOnCreditCard}
+                </ProductPriceOnCredit>
             </ProductInfoContainer>
         </Container>
     )
