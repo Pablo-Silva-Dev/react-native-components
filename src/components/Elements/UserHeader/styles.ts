@@ -1,19 +1,19 @@
+import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 
 export const Container = styled.View`
-  flex: 0.24;
   justify-content: space-between;
   align-items: flex-start;
   background-color: ${({ theme }) => theme.colors.primary};
   padding: 40px 16px 16px;
-  width: 100%;
+  width: ${Dimensions.get('screen').width}
 `;
 
 export const OptionsContainer = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
+  width: ${Dimensions.get('screen').width}
 `;
 
 export const UserContainer = styled.View`

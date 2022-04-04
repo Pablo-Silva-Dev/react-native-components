@@ -1,8 +1,9 @@
+import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 
 export const Container = styled.View`
   flex: 0.24;
-  width: 100%;
+  width: ${Dimensions.get('screen').width}
   background-color: ${({ theme }) => theme.colors.primary};
   padding: 40px 16px 16px;
 `;

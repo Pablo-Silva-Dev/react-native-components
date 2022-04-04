@@ -42,7 +42,7 @@ export const Caption = styled.Text`
 `;
 
 export const Image = styled.Image`
-  width: 100%;
+  width: ${Dimensions.get('screen').width}
   height: 160px;
   border-radius: 4px;
 `;

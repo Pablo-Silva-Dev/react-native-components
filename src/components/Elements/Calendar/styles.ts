@@ -1,3 +1,4 @@
+import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 
 export const Container = styled.View`
@@ -19,7 +20,7 @@ export const DateText = styled.Text`
 `;
 
 export const Divider = styled.View`
-  width: 100%;
+  width: ${Dimensions.get('screen').width} - 12px ;
   height: 1px;
   background-color: ${({ theme }) => theme.colors.element_base};
 `;

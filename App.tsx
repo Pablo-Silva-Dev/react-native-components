@@ -50,6 +50,7 @@ import { generateInterval } from './src/components/Elements/Calendar/generateInt
 import {UserHeader} from './src/components/Elements/UserHeader'
 import { Header } from './src/components/Elements/Header';
 import { BackButton } from './src/components/Elements/BackButton';
+import { ItemAction } from './src/components/Elements/ItemAction';
 
 
 export default function App() {
@@ -80,16 +81,19 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <StatusBar style="auto" />
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
           <Header 
             title='Novo usuário'
             content='Cadastre-se rapidamente e obtenha acesso restrito.'
             showsBackButton
           />
-          <BackButton
+          <ItemAction
+            content='Todos os seus pedidos'
+            title='Meus pedidos'
+            iconName='coffee'
             onPress={() => {}}
           />
-        </SafeAreaView>
+        </View>
       </TouchableWithoutFeedback>
     </ThemeProvider>
   );
