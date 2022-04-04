@@ -47,10 +47,11 @@ import { format } from 'date-fns';
 import { getPlatformDate } from './src/components/Elements/Calendar/getPlatformDate';
 import { generateInterval } from './src/components/Elements/Calendar/generateInterval';
 
-import {UserHeader} from './src/components/Elements/UserHeader'
+import { UserHeader } from './src/components/Elements/UserHeader'
 import { Header } from './src/components/Elements/Header';
 import { BackButton } from './src/components/Elements/BackButton';
 import { ItemAction } from './src/components/Elements/ItemAction';
+import { MiniProductCard } from './src/components/Elements/MiniProductCard';
 
 
 export default function App() {
@@ -82,16 +83,21 @@ export default function App() {
       <StatusBar style="auto" />
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
-          <Header 
-            title='Novo usuário'
-            content='Cadastre-se rapidamente e obtenha acesso restrito.'
-            showsBackButton
+          <MiniProductCard
+            productTitle='Processador I5 10500 Cache 12MB'
+            productImage='https://images0.kabum.com.br/produtos/fotos/112990/processador-intel-core-i5-10400-cache-12mb-2-9ghz-lga-1200-bx8070110400_1589200167_m.jpg'
+            productPriceOnMoney='R$ 1.100,00'
+            productPriceOnCreditCard='12 X de R$ 79,00'
+            addToCart={async () => { }}
+            addToFavorites={async () => { }}
           />
-          <ItemAction
-            content='Todos os seus pedidos'
-            title='Meus pedidos'
-            iconName='coffee'
-            onPress={() => {}}
+          <MiniProductCard
+            productTitle='Processador I5 10500 Cache 12MB'
+            productImage='https://images0.kabum.com.br/produtos/fotos/112990/processador-intel-core-i5-10400-cache-12mb-2-9ghz-lga-1200-bx8070110400_1589200167_m.jpg'
+            productPriceOnMoney='R$ 1.100,00'
+            productPriceOnCreditCard='12 X de R$ 79,00'
+            addToCart={async () => { }}
+            addToFavorites={async () => { }}
           />
         </View>
       </TouchableWithoutFeedback>
@@ -103,9 +109,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: .5,
     backgroundColor: theme.colors.background_secondary,
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
   },
 });
