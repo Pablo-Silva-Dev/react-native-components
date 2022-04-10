@@ -8,7 +8,6 @@ export const Container = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.colors.white};
   border-bottom-width: 1px;
   border-bottom-color: ${({ theme }) => theme.colors.element_base};
-  margin: 0 8px;
   padding: 12px 12px 12px 24px;
 `;
 

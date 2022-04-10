@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { SwiperFlatList, SwiperFlatListProps } from 'react-native-swiper-flatlist'
 import { Container, Image, ImageContainer } from './styles';
 
@@ -45,7 +45,6 @@ export function ImageCarousel({
                                         imageIndex === 3 ?
                                             fourthImageAction :
                                             fivethImageAction
-
                         }
                         activeOpacity={1}
                     >

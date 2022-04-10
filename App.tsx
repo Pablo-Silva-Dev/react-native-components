@@ -56,6 +56,7 @@ import { MiniProductCard } from './src/components/Elements/MiniProductCard';
 import { ProductsSlider } from './src/components/Elements/ProductsSlider';
 import { ProductCard } from './src/components/Elements/ProductCard';
 import { ImageCarousel } from './src/components/Elements/ImageCarousel';
+import { BackToTopButton } from './src/components/Elements/BackToTopButton';
 
 
 export default function App() {
@@ -125,7 +126,6 @@ export default function App() {
             />
           </View>
         <View
-  
         >
         <ImageCarousel
               images={images}
@@ -136,6 +136,51 @@ export default function App() {
               fivethImageAction={() => console.log('ok5')}
           />
         </View>
+          <ItemAction
+            content='Some'
+            title='saddfsd'
+            iconName='airplay'
+            onPress={() => {}}
+          />
+          <ItemAction
+            content='Some'
+            title='saddfsd'
+            iconName='airplay'
+            onPress={() => {}}
+          />
+          <ItemAction
+            content='Some'
+            title='saddfsd'
+            iconName='airplay'
+            onPress={() => {}}
+          />
+          <ItemAction
+            content='Some'
+            title='saddfsd'
+            iconName='airplay'
+            onPress={() => {}}
+          />
+          <ItemAction
+            content='Some'
+            title='saddfsd'
+            iconName='airplay'
+            onPress={() => {}}
+          />
+          <ItemAction
+            content='Some'
+            title='saddfsd'
+            iconName='airplay'
+            onPress={() => {}}
+          />
+          <ItemAction
+            content='Some'
+            title='saddfsd'
+            iconName='airplay'
+            onPress={() => {}}
+          />
+            <BackToTopButton 
+              onPress={() => {}}
+            />
         </ScrollView>
       </TouchableWithoutFeedback>
     </ThemeProvider>
