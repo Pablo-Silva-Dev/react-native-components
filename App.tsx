@@ -55,6 +55,7 @@ import { ItemAction } from './src/components/Elements/ItemAction';
 import { MiniProductCard } from './src/components/Elements/MiniProductCard';
 import { ProductsSlider } from './src/components/Elements/ProductsSlider';
 import { ProductCard } from './src/components/Elements/ProductCard';
+import { ImageCarousel } from './src/components/Elements/ImageCarousel';
 
 
 export default function App() {
@@ -63,6 +64,11 @@ export default function App() {
   const [isEnabled, setIsEnabled] = useState(false)
 
 
+  const images = [
+    'https://images.unsplash.com/photo-1649596565849-82825152d99e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    'https://images.unsplash.com/photo-1504297050568-910d24c426d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    'https://images.unsplash.com/photo-1649577291772-64fb5ae9e11d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+  ]
 
   const [fontLoaded] = useFonts({
     Poppins_300Light,
@@ -85,7 +91,7 @@ export default function App() {
     title: 'Processador I5 10500 Cache 12MB',
     image: 'https://images0.kabum.com.br/produtos/fotos/112990/processador-intel-core-i5-10400-cache-12mb-2-9ghz-lga-1200-bx8070110400_1589200167_m.jpg',
     priceOnMoney: 'R$ 1.100,00',
-    priceOnCredit: '12 X de R$ 79,00'
+    priceOnCredit: '12 X de R$ 94,50'
   }
 
   return (
@@ -118,7 +124,18 @@ export default function App() {
             productPriceOnCreditCard={prod.priceOnCredit}
             />
           </View>
-
+        <View
+  
+        >
+        <ImageCarousel
+              images={images}
+              firstImageAction={() => console.log('ok1')}
+              secondImageAction={() => console.log('ok2')}
+              thirdImageAction={() => console.log('ok3')}
+              fourthImageAction={() => console.log('ok4')}
+              fivethImageAction={() => console.log('ok5')}
+          />
+        </View>
         </ScrollView>
       </TouchableWithoutFeedback>
     </ThemeProvider>
