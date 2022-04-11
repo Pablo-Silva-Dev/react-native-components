@@ -81,7 +81,12 @@ export function ProductCard({
                     </ShareButton>
                 </ButtonsContainer>
                 <ProductTitle>
-                    {productTitle}
+                    {
+                        productTitle!.length > 48 ?
+                            productTitle!.substring(0, 48).concat('...')
+                            :
+                            productTitle
+                    }
                 </ProductTitle>
                 <ProductPriceOnMoney>
                     {productPriceOnMoney}

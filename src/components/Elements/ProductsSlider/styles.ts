@@ -1,7 +1,10 @@
+import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 
-export const Container = styled.ScrollView`
-  padding: 8px;
-  background-color: ${({ theme }) => theme.colors.element_base};
-  elevation: 8;
+export const Container = styled.View`
+  background-color: ${({ theme }) => theme.colors.primary};
+  padding: 4px;
+  width: ${Dimensions.get("window").width};
 `;
+
+export const ScrollContainer = styled.ScrollView``;

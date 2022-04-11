@@ -64,11 +64,10 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false)
   const [isEnabled, setIsEnabled] = useState(false)
 
-
   const images = [
-    'https://images.unsplash.com/photo-1649596565849-82825152d99e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-    'https://images.unsplash.com/photo-1504297050568-910d24c426d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-    'https://images.unsplash.com/photo-1649577291772-64fb5ae9e11d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+    'https://themes.kabum.com.br/conteudo/ads/splashline/771.jpg',
+    'https://themes.kabum.com.br/conteudo/ads/splashline/789.jpg',
+
   ]
 
   const [fontLoaded] = useFonts({
@@ -87,121 +86,84 @@ export default function App() {
       <AppLoading />
     )
   }
-
-  const prod = {
-    title: 'Processador I5 10500 Cache 12MB',
-    image: 'https://images0.kabum.com.br/produtos/fotos/112990/processador-intel-core-i5-10400-cache-12mb-2-9ghz-lga-1200-bx8070110400_1589200167_m.jpg',
-    priceOnMoney: 'R$ 1.100,00',
-    priceOnCredit: '12 X de R$ 94,50'
-  }
+  const prods = [
+    {
+      title: 'Processador I5 10500 Cache 12MB',
+      image: 'https://images0.kabum.com.br/produtos/fotos/112990/processador-intel-core-i5-10400-cache-12mb-2-9ghz-lga-1200-bx8070110400_1589200167_m.jpg',
+      priceOnMoney: 'R$ 1.100,00',
+      priceOnCredit: 'Em até 12 X de R$ 94,50'
+    },
+    {
+      title: 'Console Microsoft Xbox Series S, 512GB, Branco',
+      image: 'https://images.kabum.com.br/produtos/fotos/128561/console-microsoft-xbox-series-s-500gb-branco-rrs-00006_1601067301_gg.jpg',
+      priceOnMoney: 'R$ 2.399,99',
+      priceOnCredit: 'Em até 12x de R$ 222,22 '
+    },
+    {
+      title: 'Teclado Mecânico Gamer T-Dagger Bora, RGB, Switch Outemu Brown',
+      image: 'https://images.kabum.com.br/produtos/fotos/107964/teclado-mecanico-gamer-t-dagger-bora-rgb-switch-outemu-brown-pt-t-tgk315-brown_1641414700_gg.jpg',
+      priceOnMoney: 'R$ 199,00',
+      priceOnCredit: 'Em até 9x de R$ 26,01 '
+    },
+    {
+      title: 'Samsung Smart TV 43´´ UHD 4K 43AU7700, Processador Crystal 4K, Tela sem limites, Alexa Built In, Controle Único',
+      image: 'https://images.kabum.com.br/produtos/fotos/154974/samsung-smart-tv-43-uhd-4k-43au7700-processador-crystal-4k-tela-sem-limites-alexa-built-in-controle-unico-un43au7700gxzd_1617624901_gg.jpg',
+      priceOnMoney: 'R$ 2.231,55',
+      priceOnCredit: 'Em até 12x de R$ 195,75 '
+    }
+  ]
 
   return (
     <ThemeProvider theme={theme}>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <ScrollView style={styles.container}>
+      <TouchableWithoutFeedback
+        onPress={Keyboard.dismiss}
+      >
+        <ScrollView
+          style={{
+            marginTop: 40,
+            marginBottom: 12,
+            flex: 1
+          }}
+        >
+          <ImageCarousel
+            images={images}
+          />
           <Title
-            content='Criando interfaces para apps mobile'
+            content='Ofertas recentes'
             style={{ margin: 12 }}
           />
 
-          <ProductCard
-          productTitle={prod.title}
-          productImage={prod.image}
-          productPriceOnMoney={prod.priceOnMoney}
-          productPriceOnCreditCard={prod.priceOnCredit}
-          />
-
-          <View style={styles.miniContainer}>
-            <MiniProductCard
-            productTitle={prod.title}
-            productImage={prod.image}
-            productPriceOnMoney={prod.priceOnMoney}
-            productPriceOnCreditCard={prod.priceOnCredit}
+          {prods.map(prod => (
+            <ProductCard
+              productTitle={prod.title}
+              productImage={prod.image}
+              productPriceOnMoney={prod.priceOnMoney}
+              productPriceOnCreditCard={prod.priceOnCredit}
             />
-            <MiniProductCard
-            productTitle={prod.title}
-            productImage={prod.image}
-            productPriceOnMoney={prod.priceOnMoney}
-            productPriceOnCreditCard={prod.priceOnCredit}
-            />
-          </View>
-        <View
-        >
-        <ImageCarousel
-              images={images}
-              firstImageAction={() => console.log('ok1')}
-              secondImageAction={() => console.log('ok2')}
-              thirdImageAction={() => console.log('ok3')}
-              fourthImageAction={() => console.log('ok4')}
-              fivethImageAction={() => console.log('ok5')}
+          ))}
+          <Title
+            content='Produtos em destaque'
+            style={{ margin: 12 }}
           />
-        </View>
-          <ItemAction
-            content='Some'
-            title='saddfsd'
-            iconName='airplay'
-            onPress={() => {}}
+          <ProductsSlider
+          >
+            {prods.map(prod => (
+              <MiniProductCard
+                productTitle={prod.title}
+                productImage={prod.image}
+                productPriceOnMoney={prod.priceOnMoney}
+                productPriceOnCreditCard={prod.priceOnCredit}
+              />
+            ))}
+          </ProductsSlider>
+          <BackToTopButton
+            onPress={() => { }}
           />
-          <ItemAction
-            content='Some'
-            title='saddfsd'
-            iconName='airplay'
-            onPress={() => {}}
-          />
-          <ItemAction
-            content='Some'
-            title='saddfsd'
-            iconName='airplay'
-            onPress={() => {}}
-          />
-          <ItemAction
-            content='Some'
-            title='saddfsd'
-            iconName='airplay'
-            onPress={() => {}}
-          />
-          <ItemAction
-            content='Some'
-            title='saddfsd'
-            iconName='airplay'
-            onPress={() => {}}
-          />
-          <ItemAction
-            content='Some'
-            title='saddfsd'
-            iconName='airplay'
-            onPress={() => {}}
-          />
-          <ItemAction
-            content='Some'
-            title='saddfsd'
-            iconName='airplay'
-            onPress={() => {}}
-          />
-            <BackToTopButton 
-              onPress={() => {}}
-            />
         </ScrollView>
       </TouchableWithoutFeedback>
     </ThemeProvider>
   );
 }
 
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: theme.colors.background_secondary,
-    paddingTop: 40
-  },
-  miniContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    width: '100%',
-    backgroundColor: theme.colors.background_secondary,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 12
-  },
-});
+/* 
+ */

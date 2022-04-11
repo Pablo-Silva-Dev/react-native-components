@@ -25,15 +25,14 @@ export const Image = styled.Image`
 export const ProductInfoContainer = styled.View`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  margin-left: 16px;
+  justifyContent: space-between;
 `;
 
 export const ProductTitle = styled.Text`
   font-size: 12px;
+  width: 40%;
   font-family: ${({ theme }) => theme.fonts.primary_500};
   color: ${({ theme }) => theme.colors.text};
-  width: 56%;
 `;
 
 export const ProductPriceOnMoney = styled.Text`
@@ -46,19 +45,21 @@ export const ProductPriceOnCredit = styled.Text`
   font-size: 10px;
   font-family: ${({ theme }) => theme.fonts.primary_400};
   color: ${({ theme }) => theme.colors.text};
+  width: 40%;
 `;
 
-export const Divider = styled.View`
+/* export const Divider = styled.View`
   width: 50%;
   height: 1px;
   background-color: ${({ theme }) => theme.colors.element_base};
   margin-bottom: 8px;
   margin-top: 8px;
-`;
+`; */
 
 export const ButtonsContainer = styled.View`
   display: flex;
   flex-direction: row;
+  margin: 16px 0;
 `;
 
 export const CartButton = styled.TouchableOpacity`

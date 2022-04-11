@@ -1,20 +1,22 @@
 import React, { ReactNode } from 'react';
-import { Container } from './styles';
+import { ScrollViewProps } from 'react-native';
+import { Container, ScrollContainer } from './styles';
 
-interface ProductsSliderProps {
+interface ProductsSliderProps extends ScrollViewProps {
     children: ReactNode;
 }
 
 export function ProductsSlider({ children }: ProductsSliderProps) {
     return (
-        <Container
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            style={{
-                paddingHorizontal: 24
-            }}
-        >
-            {children}
+        <Container>
+            <ScrollContainer
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                style={{
+                }}
+            >
+                {children}
+            </ScrollContainer>
         </Container>
     )
 }

@@ -7,7 +7,6 @@ import {
     ProductInfoContainer,
     ProductPriceOnMoney,
     ProductPriceOnCredit,
-    Divider,
     ButtonsContainer,
     CartButton,
     FavoriteButton,
@@ -46,18 +45,6 @@ export function MiniProductCard({
                 <Image
                     source={{ uri: productImage }}
                 />
-            </ImageContainer>
-            <ProductInfoContainer>
-                <ProductTitle>
-                    {productTitle}
-                </ProductTitle>
-                <ProductPriceOnMoney>
-                    {productPriceOnMoney}
-                </ProductPriceOnMoney>
-                <ProductPriceOnCredit>
-                    {productPriceOnCreditCard}
-                </ProductPriceOnCredit>
-                <Divider />
                 <ButtonsContainer>
                     <CartButton
                         activeOpacity={.8}
@@ -65,7 +52,7 @@ export function MiniProductCard({
                     >
                         <Feather
                             name='shopping-cart'
-                            size={16}
+                            size={12}
                             color={theme.colors.silver}
                         />
                     </CartButton>
@@ -75,7 +62,7 @@ export function MiniProductCard({
                     >
                         <Feather
                             name='heart'
-                            size={16}
+                            size={12}
                             color={theme.colors.silver}
                         />
                     </FavoriteButton>
@@ -85,11 +72,27 @@ export function MiniProductCard({
                     >
                         <Feather
                             name='share-2'
-                            size={16}
+                            size={12}
                             color={theme.colors.silver}
                         />
                     </ShareButton>
                 </ButtonsContainer>
+            </ImageContainer>
+            <ProductInfoContainer>
+                <ProductTitle>
+                    {
+                        productTitle!.length > 24 ?
+                            productTitle!.substring(0, 24).concat('...')
+                            :
+                            productTitle
+                    }
+                </ProductTitle>
+                <ProductPriceOnMoney>
+                    {productPriceOnMoney}
+                </ProductPriceOnMoney>
+                <ProductPriceOnCredit>
+                    {productPriceOnCreditCard}
+                </ProductPriceOnCredit>
             </ProductInfoContainer>
         </Container>
     )

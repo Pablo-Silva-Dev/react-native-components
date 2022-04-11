@@ -12,6 +12,7 @@ export const BackToTopButton = styled.TouchableOpacity`
     position: absolute;
     bottom: 64px;
     right: ${Dimensions.get('window').width/20}px;
-    background-color: ${({theme}) => theme.colors.primary};
+    background-color: ${({theme}) => theme.colors.element_base};
     z-index: 999;
+    elevation: 4;
 `
