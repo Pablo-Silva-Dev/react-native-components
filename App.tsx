@@ -24,45 +24,15 @@ import {
 import { ThemeProvider } from 'styled-components';
 import { theme } from './src/themes/theme';
 
-import { SearchBar } from './src/components/Elements/SearchBar';
-import { Switch } from './src/components/Elements/Switch';
-import { Divider } from './src/components/Elements/Divider';
-import { CardInfo } from './src/components/Elements/CardInfo';
-import { CardImage } from './src/components/Elements/CardImage';
-import { AlternativeButton } from './src/components/Elements/AlternativeButton';
-import { FormButton } from './src/components/Forms/FormButton';
-import { Button } from './src/components/Elements/Button';
-import { Input } from './src/components/Forms/Input';
-import { EmailInput } from './src/components/Forms/EmailInput';
-import { PasswordInput } from './src/components/Forms/PasswordInput';
-import { Title } from './src/components/Typography/Title';
-import { SubTitle } from './src/components/Typography/SubTitle';
-import { Text } from './src/components/Typography/Text';
-import { Avatar } from './src/components/Elements/Avatar';
-import {
-  Calendar,
-  DayProps,
-  MarkedDateProps
-} from './src/components/Elements/Calendar';
-import { format } from 'date-fns';
-import { getPlatformDate } from './src/components/Elements/Calendar/getPlatformDate';
-import { generateInterval } from './src/components/Elements/Calendar/generateInterval';
-
-import { UserHeader } from './src/components/Elements/UserHeader'
-import { Header } from './src/components/Elements/Header';
-import { BackButton } from './src/components/Elements/BackButton';
-import { ItemAction } from './src/components/Elements/ItemAction';
 import { MiniProductCard } from './src/components/Elements/MiniProductCard';
 import { ProductsSlider } from './src/components/Elements/ProductsSlider';
 import { ProductCard } from './src/components/Elements/ProductCard';
 import { ImageCarousel } from './src/components/Elements/ImageCarousel';
 import { BackToTopButton } from './src/components/Elements/BackToTopButton';
-
+import { Title } from './src/components/Typography/Title';
+import {CollapsibleItem} from './src/components/Elements/CollapsibleItem'
 
 export default function App() {
-
-  const [isLoading, setIsLoading] = useState(false)
-  const [isEnabled, setIsEnabled] = useState(false)
 
   const images = [
     'https://themes.kabum.com.br/conteudo/ads/splashline/771.jpg',
@@ -125,45 +95,16 @@ export default function App() {
             flex: 1
           }}
         >
-          <ImageCarousel
-            images={images}
+          <CollapsibleItem 
+            title='Some title'
+            content='Collapsible item'
           />
-          <Title
-            content='Ofertas recentes'
-            style={{ margin: 12 }}
-          />
-
-          {prods.map(prod => (
-            <ProductCard
-              productTitle={prod.title}
-              productImage={prod.image}
-              productPriceOnMoney={prod.priceOnMoney}
-              productPriceOnCreditCard={prod.priceOnCredit}
-            />
-          ))}
-          <Title
-            content='Produtos em destaque'
-            style={{ margin: 12 }}
-          />
-          <ProductsSlider
-          >
-            {prods.map(prod => (
-              <MiniProductCard
-                productTitle={prod.title}
-                productImage={prod.image}
-                productPriceOnMoney={prod.priceOnMoney}
-                productPriceOnCreditCard={prod.priceOnCredit}
-              />
-            ))}
-          </ProductsSlider>
-          <BackToTopButton
-            onPress={() => { }}
+          <CollapsibleItem 
+            title='Some title2'
+            content='Collapsible item2'
           />
         </ScrollView>
       </TouchableWithoutFeedback>
     </ThemeProvider>
   );
 }
-
-/* 
- */
