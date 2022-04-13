@@ -30,7 +30,8 @@ import { ProductCard } from './src/components/Elements/ProductCard';
 import { ImageCarousel } from './src/components/Elements/ImageCarousel';
 import { BackToTopButton } from './src/components/Elements/BackToTopButton';
 import { Title } from './src/components/Typography/Title';
-import {CollapsibleItem} from './src/components/Elements/CollapsibleItem'
+import { CollapsibleItem } from './src/components/Elements/CollapsibleItem'
+import { CategoryItem } from './src/components/Elements/CategoryItem';
 
 export default function App() {
 
@@ -95,14 +96,29 @@ export default function App() {
             flex: 1
           }}
         >
-          <CollapsibleItem 
-            title='Some title'
-            content='Collapsible item'
-          />
-          <CollapsibleItem 
-            title='Some title2'
-            content='Collapsible item2'
-          />
+          <ProductsSlider
+            style={{
+              backgroundColor: 'red'
+            }}
+          >
+            <CategoryItem
+              title='Gamer'
+              iconName='crosshairs'
+            />
+            <CategoryItem
+              title='Escritório'
+              iconName='pencil'
+            />
+            <CategoryItem
+              title='Hosptitalar'
+              iconName='medkit'
+            />
+            <CategoryItem
+              title='Urbano'
+              iconName='building'
+            />
+
+          </ProductsSlider>
         </ScrollView>
       </TouchableWithoutFeedback>
     </ThemeProvider>

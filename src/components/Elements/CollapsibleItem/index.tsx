@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Animated, Easing } from 'react-native';
+import { Animated, Easing, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import {
     ItemContainer,
