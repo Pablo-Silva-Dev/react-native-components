@@ -18,6 +18,7 @@ import {
 import { ThemeProvider } from 'styled-components';
 import { CategoryItem } from './src/components/Elements/CategoryItem';
 import { CategorySubItem } from './src/components/Elements/CategorySubItem';
+import { FavoriteProductCard } from './src/components/Elements/FavoriteProductCard';
 import { ProductsSlider } from './src/components/Elements/ProductsSlider';
 import { theme } from './src/themes/theme';
 
@@ -115,6 +116,18 @@ export default function App() {
             <CategorySubItem 
               title='sdfsdf'
               onPress={ async () => {}}
+            />
+            <FavoriteProductCard
+              productTitle={prods[3].title}
+              productImage={prods[0].image}
+              productPriceOnMoney={prods[0].priceOnMoney}
+              productPriceOnCreditCard={prods[0].priceOnCredit}
+            />
+            <FavoriteProductCard
+              productTitle={prods[1].title}
+              productImage={prods[2].image}
+              productPriceOnMoney={prods[0].priceOnMoney}
+              productPriceOnCreditCard={prods[0].priceOnCredit}
             />
         </ScrollView>
       </TouchableWithoutFeedback>
