@@ -11,27 +11,16 @@ import {
   Poppins_700Bold, useFonts
 } from '@expo-google-fonts/poppins';
 import AppLoading from 'expo-app-loading';
-import { StatusBar } from 'expo-status-bar';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
-  Keyboard,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View,
-  ScrollView,
-  SafeAreaView
+  Keyboard, ScrollView, TouchableWithoutFeedback
 } from 'react-native';
 import { ThemeProvider } from 'styled-components';
+import { CategoryItem } from './src/components/Elements/CategoryItem';
+import { CategorySubItem } from './src/components/Elements/CategorySubItem';
+import { ProductsSlider } from './src/components/Elements/ProductsSlider';
 import { theme } from './src/themes/theme';
 
-import { MiniProductCard } from './src/components/Elements/MiniProductCard';
-import { ProductsSlider } from './src/components/Elements/ProductsSlider';
-import { ProductCard } from './src/components/Elements/ProductCard';
-import { ImageCarousel } from './src/components/Elements/ImageCarousel';
-import { BackToTopButton } from './src/components/Elements/BackToTopButton';
-import { Title } from './src/components/Typography/Title';
-import { CollapsibleItem } from './src/components/Elements/CollapsibleItem'
-import { CategoryItem } from './src/components/Elements/CategoryItem';
 
 export default function App() {
 
@@ -119,6 +108,14 @@ export default function App() {
             />
 
           </ProductsSlider>
+            <CategorySubItem 
+              title='sdfsdf'
+              onPress={ async () => {}}
+            />
+            <CategorySubItem 
+              title='sdfsdf'
+              onPress={ async () => {}}
+            />
         </ScrollView>
       </TouchableWithoutFeedback>
     </ThemeProvider>
