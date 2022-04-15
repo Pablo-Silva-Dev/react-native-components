@@ -18,6 +18,7 @@ import {
 import { ThemeProvider } from 'styled-components';
 import { CategoryItem } from './src/components/Elements/CategoryItem';
 import { CategorySubItem } from './src/components/Elements/CategorySubItem';
+import { DealTimingCard } from './src/components/Elements/DealTimingCard';
 import { FavoriteProductCard } from './src/components/Elements/FavoriteProductCard';
 import { ProductsSlider } from './src/components/Elements/ProductsSlider';
 import { theme } from './src/themes/theme';
@@ -86,48 +87,17 @@ export default function App() {
             flex: 1
           }}
         >
-          <ProductsSlider
-            style={{
-              backgroundColor: 'red'
-            }}
-          >
-            <CategoryItem
-              title='Gamer'
-              iconName='crosshairs'
-            />
-            <CategoryItem
-              title='Escritório'
-              iconName='pencil'
-            />
-            <CategoryItem
-              title='Hosptitalar'
-              iconName='medkit'
-            />
-            <CategoryItem
-              title='Urbano'
-              iconName='building'
-            />
 
-          </ProductsSlider>
-            <CategorySubItem 
-              title='sdfsdf'
-              onPress={ async () => {}}
-            />
-            <CategorySubItem 
-              title='sdfsdf'
-              onPress={ async () => {}}
-            />
+           
             <FavoriteProductCard
               productTitle={prods[3].title}
               productImage={prods[0].image}
               productPriceOnMoney={prods[0].priceOnMoney}
               productPriceOnCreditCard={prods[0].priceOnCredit}
             />
-            <FavoriteProductCard
-              productTitle={prods[1].title}
-              productImage={prods[2].image}
-              productPriceOnMoney={prods[0].priceOnMoney}
-              productPriceOnCreditCard={prods[0].priceOnCredit}
+            <DealTimingCard 
+              quantity={12}
+              dealHours={1}
             />
         </ScrollView>
       </TouchableWithoutFeedback>
