@@ -40,7 +40,7 @@ export function DealTimingCard({ dealHours, quantity }: DealTimingCardProps) {
           setSeconds(59);
         }
       }
-    }, 1)
+    }, 1000)
     return () => {
       clearInterval(myInterval);
     };

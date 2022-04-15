@@ -20,6 +20,7 @@ import { CategoryItem } from './src/components/Elements/CategoryItem';
 import { CategorySubItem } from './src/components/Elements/CategorySubItem';
 import { DealTimingCard } from './src/components/Elements/DealTimingCard';
 import { FavoriteProductCard } from './src/components/Elements/FavoriteProductCard';
+import { ProductDetailCard } from './src/components/Elements/ProductDetailCard';
 import { ProductsSlider } from './src/components/Elements/ProductsSlider';
 import { theme } from './src/themes/theme';
 
@@ -27,8 +28,10 @@ import { theme } from './src/themes/theme';
 export default function App() {
 
   const images = [
-    'https://themes.kabum.com.br/conteudo/ads/splashline/771.jpg',
-    'https://themes.kabum.com.br/conteudo/ads/splashline/789.jpg',
+    'https://images.kabum.com.br/produtos/fotos/166104/placa-de-video-zotac-nvidia-geforce-rtx-3060ti-twin-edge-lhr-8gb-14-0-gbps-gddr6-dlss-ray-tracing-zt-a30610e-10mlhr_1623326525_gg.jpg',
+    'https://images.kabum.com.br/produtos/fotos/166104/placa-de-video-zotac-nvidia-geforce-rtx-3060ti-twin-edge-lhr-8gb-14-0-gbps-gddr6-dlss-ray-tracing-zt-a30610e-10mlhr_1623326523_gg.jpg',
+    'https://images.kabum.com.br/produtos/fotos/166104/placa-de-video-zotac-nvidia-geforce-rtx-3060ti-twin-edge-lhr-8gb-14-0-gbps-gddr6-dlss-ray-tracing-zt-a30610e-10mlhr_1623326525_gg.jpg',
+    'https://images.kabum.com.br/produtos/fotos/166104/placa-de-video-zotac-nvidia-geforce-rtx-3060ti-twin-edge-lhr-8gb-14-0-gbps-gddr6-dlss-ray-tracing-zt-a30610e-10mlhr_1623326523_gg.jpg',
 
   ]
 
@@ -87,18 +90,14 @@ export default function App() {
             flex: 1
           }}
         >
-
-           
-            <FavoriteProductCard
-              productTitle={prods[3].title}
-              productImage={prods[0].image}
-              productPriceOnMoney={prods[0].priceOnMoney}
-              productPriceOnCreditCard={prods[0].priceOnCredit}
-            />
-            <DealTimingCard 
-              quantity={12}
-              dealHours={1}
-            />
+          <ProductDetailCard
+            productImages={images}
+            productTitle={prods[3].title}
+          />
+          <DealTimingCard
+            quantity={12}
+            dealHours={1}
+          />
         </ScrollView>
       </TouchableWithoutFeedback>
     </ThemeProvider>
