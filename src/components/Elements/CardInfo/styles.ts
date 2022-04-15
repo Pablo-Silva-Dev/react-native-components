@@ -7,25 +7,10 @@ export const Container = styled.View`
   margin: 4px;
   border-width: 2px;
   border-color: ${({ theme }) => theme.colors.element_base}
-  width: ${Dimensions.get("window").width - 16}px;
+  width: ${Dimensions.get("window").width - 12}px;
   elevation: 8;
-  shadow-color: ${({ theme }) => theme.colors.title};
-  shadow-offset: {width: -2, height: 4};
-  shadow-opacity: 0.2;
-  shadow-radius: 2;
 `;
 
-export const TitleContainer = styled.View`
-  display: flex;
-  align-items: flex-start;
-  padding: 8px 16px 4px;
-`;
-
-export const ContentContainer = styled.View`
-  display: flex;
-  align-items: flex-start;
-  padding: 8px 16px;
-`;
 
 export const Title = styled.Text`
   font-size: 16px;

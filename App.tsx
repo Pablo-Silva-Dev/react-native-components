@@ -16,10 +16,13 @@ import {
   Keyboard, ScrollView, TouchableWithoutFeedback
 } from 'react-native';
 import { ThemeProvider } from 'styled-components';
+import { AlternativeButton } from './src/components/Elements/AlternativeButton';
+import { Button } from './src/components/Elements/Button';
 import { CategoryItem } from './src/components/Elements/CategoryItem';
 import { CategorySubItem } from './src/components/Elements/CategorySubItem';
 import { DealTimingCard } from './src/components/Elements/DealTimingCard';
 import { FavoriteProductCard } from './src/components/Elements/FavoriteProductCard';
+import { PaymentCard } from './src/components/Elements/PaymentCard';
 import { ProductDetailCard } from './src/components/Elements/ProductDetailCard';
 import { ProductsSlider } from './src/components/Elements/ProductsSlider';
 import { theme } from './src/themes/theme';
@@ -82,12 +85,18 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <TouchableWithoutFeedback
         onPress={Keyboard.dismiss}
+        style={{
+          flex: 1,
+          alignItems: 'center'
+
+        }}
       >
         <ScrollView
           style={{
             marginTop: 40,
             marginBottom: 12,
-            flex: 1
+            flex: 1,
+
           }}
         >
           <ProductDetailCard
@@ -98,8 +107,15 @@ export default function App() {
             quantity={12}
             dealHours={1}
           />
+          <PaymentCard
+            priceOnMoney={500}
+            priceOnCredit={520}
+          />
+      <Button
+        title='Finalizar compra'
+      />
         </ScrollView>
       </TouchableWithoutFeedback>
     </ThemeProvider>
-  );
+  )
 }

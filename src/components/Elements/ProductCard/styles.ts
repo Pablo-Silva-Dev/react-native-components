@@ -6,7 +6,7 @@ export const Container = styled.View`
   flex-direction: row;
   justify-content: space-between
   align-items: flex-start;
-  width: ${Dimensions.get('window').width - 16}px;
+  width: ${Dimensions.get('window').width - 12}px;
   height: 144px;
   border-radius: 4px;
   padding: 12px;

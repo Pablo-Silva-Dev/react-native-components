@@ -1,3 +1,4 @@
+import { Dimensions } from "react-native";
 import styled, { css } from "styled-components/native";
 
 interface ButtonProps {
@@ -7,9 +8,9 @@ interface ButtonProps {
 export const Container = styled.TouchableOpacity<ButtonProps>`
   justify-content: center;
   align-items: center;
-  width: 96%;
+  width: ${Dimensions.get('window').width - 12}px;
   height: 54px;
-  margin: 2px;
+  margin: 4px auto;
   border-radius: 4px;
   background-color: ${({theme}) => theme.colors.primary};
   text-transform: uppercase;

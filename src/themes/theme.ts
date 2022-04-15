@@ -14,7 +14,7 @@ export const theme = {
         title: '#111111',
         text: '#222222',
         element_base: '#e6e6e6',
-        success: '#4fd934',
+        success: '#539642',
         alert: '#d97934',
         error: '#d9344f',
         white: '#ffffff',

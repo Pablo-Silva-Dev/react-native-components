@@ -2,7 +2,16 @@ import React, { useState } from 'react';
 import { SwiperFlatList, SwiperFlatListProps } from 'react-native-swiper-flatlist'
 import { Feather } from '@expo/vector-icons'
 
-import { Container, FavoriteButton, Image, ImageIndexText, ProductAvailableBadge, ProductTitle, ShareButton, SliderContainer } from './styles';
+import {
+    Container,
+    FavoriteButton,
+    Image,
+    ImageIndexText,
+    ProductAvailableBadge,
+    ProductTitle,
+    ShareButton,
+    SliderContainer
+} from './styles';
 import { useTheme } from 'styled-components';
 
 interface ProductDetailCard {
@@ -54,7 +63,6 @@ export function ProductDetailCard({
                         <Image
                             source={{ uri: item }}
                         />
-
                     </SliderContainer>
                 )}
             />

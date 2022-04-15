@@ -11,10 +11,8 @@ export const SliderContainer = styled.View`
   width: ${Dimensions.get("window").width}px;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 `;
-
-export const ImageContainer = styled.TouchableOpacity``;
 
 export const Image = styled.Image`
   width: ${Dimensions.get("window").width / 1.6}px;
